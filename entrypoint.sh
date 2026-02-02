@@ -52,7 +52,7 @@ echo "${PROMPT}" > /tmp/prompt.txt
 cat > /tmp/run-pi.sh << 'RUNNER'
 #!/bin/bash
 cd /workspace
-pi -p "$(cat /tmp/prompt.txt)"
+pi "$(cat /tmp/prompt.txt)"
 echo ""
 echo "=== Pi finished. Container will exit. ==="
 RUNNER
