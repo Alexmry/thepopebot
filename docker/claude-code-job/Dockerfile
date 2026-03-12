@@ -29,7 +29,7 @@ RUN chmod +x /entrypoint.sh
 # `agent` user can find what root installed during build.
 ENV PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
 RUN npx -y playwright install --with-deps chromium \
-    && chmod -R o+rx /opt/pw-browsers
+    && chown -R agent:agent /opt/pw-browsers
 
 USER agent
 WORKDIR /job
