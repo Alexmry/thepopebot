@@ -173,7 +173,7 @@ export function CodeModeToggle({
       {/* Repo/branch pickers — inline, both always visible */}
       {enabled && (
         <>
-          <div className="w-full sm:w-auto sm:min-w-[220px]">
+          <div className="w-full sm:w-auto sm:min-w-[240px] sm:max-w-[240px]">
             <Combobox
               options={repoOptions}
               value={repo}
@@ -183,7 +183,7 @@ export function CodeModeToggle({
               highlight={!repo && !loadingRepos}
             />
           </div>
-          <div className={cn("w-full sm:w-auto sm:min-w-[180px]", !repo && "opacity-50 pointer-events-none")}>
+          <div className={cn("w-full sm:w-auto sm:min-w-[200px] sm:max-w-[200px]", !repo && "opacity-50 pointer-events-none")}>
             <Combobox
               options={branchOptions}
               value={branch}

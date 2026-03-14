@@ -331,7 +331,9 @@ export function PreviewMessage({ message, isLoading, onRetry, onEdit }) {
                   {message.parts?.length > 0 ? (
                     message.parts.map((part, i) => {
                       if (part.type === 'text') {
-                        return <Streamdown key={i} mode={isLoading ? 'streaming' : 'static'} linkSafety={linkSafety}>{part.text}</Streamdown>;
+                        const prevPart = message.parts[i - 1];
+                        const afterTool = prevPart?.type?.startsWith('tool-');
+                        return <Streamdown key={i} className={afterTool ? 'mt-3' : undefined} mode={isLoading ? 'streaming' : 'static'} linkSafety={linkSafety}>{part.text}</Streamdown>;
                       }
                       if (part.type === 'file') {
                         if (part.mediaType?.startsWith('image/')) {
